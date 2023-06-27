@@ -33,6 +33,7 @@
           <!-- NAVLINKS -->
           <a href="#/about" class="nav-link">About</a>
           <a href="#/cars" class="nav-link">Cars</a>
+          <a href="#/houses" class="nav-link">Houses</a>
         </div>
       </div>
       <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
@@ -108,7 +109,76 @@
 
         </div>
       </div> -->
+
+      <div class="container-fluid">
+        <section class="row">
+          <div class="col-12">
+            <h1>Houses</h1>
+            <button class="btn btn-primary d-none" id="houseFormButton" type="button" data-bs-toggle="collapse"
+              data-bs-target="#houseCollapse" aria-expanded="false" aria-controls="collapseExample">
+              House Form
+            </button>
+          </div>
+        </section>
+        <section class="row">
+          <div class="col-10 m-auto">
+            <div class="collapse" id="houseCollapse">
+              <div class="card card-body">
+                <form onsubmit="app.HousesController.createHouse(event)">
+
+                  <div>
+                    <label for="houseYear">Year Built:</label>
+                    <input type="number" id="houseYear" min="" max="" name="year" required>
+                  </div>
+
+                  <div>
+                    <label for="houseBedrooms">Bedrooms:</label>
+                    <input type="number" id="houseBedrooms" min="1" name="bedrooms" required>
+                  </div>
+
+                  <div>
+                    <label for="houseBathrooms">Bathrooms:</label>
+                    <input type="number" id="houseBathrooms" min="1" name="bathrooms" required>
+                  </div>
+
+                  <div>
+                    <label for="housePicture">House Image URL:</label>
+                    <input type="url" id="housePicture" name="imgUrl">
+                  </div>
+
+                  <div>
+                    <label for="housePrice">Asking Price:</label>
+                    <input type="number" id="housePrice" min="1" max="300000000" name="price" required>
+                  </div>
+
+                  <div>
+                    <label for="houseLevels">Levels:</label>
+                    <input type="number" id="houseLevels" min="1" max="30000000" name="levels" required>
+                  </div>
+
+                  <div>
+                    <label for="houseDescription">Description:</label>
+                    <textarea id="houseDescription" rows="5" cols="w-40" name="description"></textarea>
+                  </div>
+                  <button type="submit">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </section>
+
+
+    <div class="row" id="cribsList">
+
+    </div>
+    </div>
+    </section>
+    </div>
+    </section>
+
+
 
 
   </main>
