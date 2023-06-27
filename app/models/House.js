@@ -37,7 +37,7 @@ export class House {
                 <img class="img-fluid creator-picture" src="${this.creator.picture}" alt="${this.creator.name}">
               </div>
               ${this.ComputeDeleteButton}
-              
+              ${this.ComputeEditButton}
 
         </div>
       </section>
@@ -54,6 +54,59 @@ export class House {
     `
   }
 
+  get ComputeEditButton() {
+    if (!AppState.account || AppState.account.id != this.creatorId) {
+      return ''
+    }
+    return `
+    <button class="btn btn-warning text-light" onclick="app.HousesController.editHouse('${this.id}')">Mark as Sold!</button>
+    `
+  }
+
+  get EditForm() {
+    return `
+    <div class="card card-body">
+                <form onsubmit="app.HousesController.createHouse(event)">
+
+                  <div>
+                    <label for="houseYear">Year Built:</label>
+                    <input type="number" id="houseYear" min="" max="" name="year" required>
+                  </div>
+
+                  <div>
+                    <label for="houseBedrooms">Bedrooms:</label>
+                    <input type="number" id="houseBedrooms" min="1" name="bedrooms" required>
+                  </div>
+
+                  <div>
+                    <label for="houseBathrooms">Bathrooms:</label>
+                    <input type="number" id="houseBathrooms" min="1" name="bathrooms" required>
+                  </div>
+
+                  <div>
+                    <label for="housePicture">House Image URL:</label>
+                    <input type="url" id="housePicture" name="imgUrl">
+                  </div>
+
+                  <div>
+                    <label for="housePrice">Asking Price:</label>
+                    <input type="number" id="housePrice" min="1" max="300000000" name="price" required>
+                  </div>
+
+                  <div>
+                    <label for="houseLevels">Levels:</label>
+                    <input type="number" id="houseLevels" min="1" max="30000000" name="levels" required>
+                  </div>
+
+                  <div>
+                    <label for="houseDescription">Description:</label>
+                    <textarea id="houseDescription" rows="5" cols="w-40" name="description"></textarea>
+                  </div>
+                  <button class="btn btn-secondary" type="submit">Submit</button>
+                </form>
+              </div>
+    `
+  }
 }
 
 
