@@ -59,7 +59,7 @@ export class House {
       return ''
     }
     return `
-    <button class="btn btn-warning text-light" onclick="app.HousesController.editHouse('${this.id}')">Mark as Sold!</button>
+    <button class="btn btn-warning text-light" onclick="app.HousesController.editHouse('${this.id}')">Edit Listing</button>
     `
   }
 
